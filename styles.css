@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f6f1f1;
+}
+
+.container {
+  max-width: 960px;
+  padding-inline: 20px;
+  margin-inline: auto;
+}
+
+/* START HEADER */
+header h1 {
+  font-family: "arial";
+  font-size: 4rem;
+  grid-column-start: 2;
+  text-align: center;
+  color: #343a40;
+  padding-block: 2rem;
+}
+/* END HEADER */
+
+/* START CONFIG SETTINGS */
+.config {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.config div {
+  text-align: center;
+}
+
+.color-picker-label {
+  padding-top: 0.5rem;
+}
+
+.config button {
+  padding-block: 0.5rem;
+  color: #f6f1f1;
+  font-weight: bold;
+  background-color: #343a40;
+  border-radius: 0.3rem;
+  border-style: none;
+}
+
+.config button:hover {
+  background-color: #f6f1f1;
+  color: #343a40;
+  outline: 1px solid #343a40;
+}
+/* END CONFIG SETTINGS */
+
+/* START GRID AND CONFIG LAYOUT */
+.grid-n-config {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr 1.5fr;
+  gap: 2rem;
+}
+/* END GRID AND CONFIG LAYOUT */
+
+/* START GRID */
+.adjustable-grid {
+  background-color: white;
+  width: 500px;
+  height: 500px;
+}
+/* END GRID */

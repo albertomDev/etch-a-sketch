@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Etch-a-sketch</h1>
+      </header>
+      <main class="grid-n-config">
+        <section>
+          <div class="config">
+            <div>
+              <input
+                type="color"
+                id="favcolor"
+                name="favcolor"
+                value="#ff0000"
+              />
+              <p class="color-picker-label">Color Picker</p>
+            </div>
+            <button>Clear</button>
+            <button>Reset</button>
+            <button>Rainbow</button>
+            <div>
+              <input type="range" min="1" max="100" value="16" id="slider" />
+              <p id="slider-value">16</p>
+            </div>
+          </div>
+        </section>
+        <section class="adjustable-grid">grid</section>
+      </main>
+    </div>
+    <script src="/main.js"></script>
+  </body>
+</html>
