@@ -99,7 +99,7 @@ header h1 {
 .grid-n-config {
   display: grid;
   grid-template-columns: 1.5fr 3fr 1.5fr;
-  gap: 2rem;
+  gap: 5rem;
 }
 /* END GRID AND CONFIG LAYOUT */
 
@@ -108,5 +108,6 @@ header h1 {
   background-color: white;
   width: 500px;
   height: 500px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 /* END GRID */
