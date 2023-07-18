@@ -34,10 +34,10 @@ header h1 {
   justify-content: center;
 }
 
-.color-picker, .slider {
+.color-picker,
+.slider {
   text-align: center;
 }
-
 
 /* needed to remove the outside boarder */
 .color-picker input[type="color"] {
@@ -55,6 +55,12 @@ header h1 {
 
 /* needed to the remove the inside border */
 ::-webkit-color-swatch {
+  border: 0;
+  border-radius: 50%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+::-moz-color-swatch {
   border: 0;
   border-radius: 50%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -80,13 +86,13 @@ header h1 {
 }
 
 .slider input[type="range"] {
-  width: 100%;
-  height: 25px;
+  width: 100%;;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  accent-color: #00b4d8;
+  cursor: pointer;
 }
-
 
 /* END CONFIG SETTINGS */
 
@@ -105,4 +111,3 @@ header h1 {
   height: 500px;
 }
 /* END GRID */
-
