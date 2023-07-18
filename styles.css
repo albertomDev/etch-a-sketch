@@ -86,14 +86,13 @@ header h1 {
 }
 
 .slider input[type="range"] {
-  width: 100%;;
+  width: 100%;
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
   accent-color: #00b4d8;
   cursor: pointer;
 }
-
 /* END CONFIG SETTINGS */
 
 /* START GRID AND CONFIG LAYOUT */
