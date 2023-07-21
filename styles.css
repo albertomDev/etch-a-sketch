@@ -60,6 +60,7 @@ header h1 {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+/* needed to the remove the inside border for firefox UNTESTED */
 ::-moz-color-swatch {
   border: 0;
   border-radius: 50%;
@@ -109,5 +110,8 @@ header h1 {
   width: 500px;
   height: 500px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 /* END GRID */
