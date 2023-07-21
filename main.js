@@ -19,21 +19,22 @@ const gridInputHandler = (event) => {
   adjustableGrid.innerHTML = totalDiv;
 };
 
+// apply color on as mouse moves
 const clickAndHoldHandler = () => {
   adjustableGrid.addEventListener("mouseover", (event) => {
-    console.log(event.toElement);
+    //console.log(event.toElement);
     if (holding && event.currentTarget === adjustableGrid) {
-      console.log("im inside the grid");
-      clickAndHoldHandler(event);
+      event.toElement.style.backgroundColor = `${colorPickerInput.value}`;
     }
   });
 };
 
 sliderInput.addEventListener("input", gridInputHandler);
 
+// set initial color color
 adjustableGrid.addEventListener("mousedown", (event) => {
   holding = true;
-  console.log(event.target);
+  //console.log(event.currentTarget);
   event.target.style.backgroundColor = `${colorPickerInput.value}`;
   clickAndHoldHandler();
 });
