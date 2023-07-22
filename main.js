@@ -1,21 +1,25 @@
 const sliderInput = document.querySelector("#slider");
-const adjustableGrid = document.querySelector(".adjustable-grid");
 const sliderLabel = document.querySelector(".slider-label");
+const adjustableGrid = document.querySelector(".adjustable-grid");
 const gridChildren = document.querySelectorAll(".adjustable-grid div");
 const colorPickerInput = document.querySelector("#color-picker");
 const rainbowColor = document.querySelector(".rainbow");
+const resetGrid = document.querySelector(".reset-grid");
+const clearSingleDiv = document.querySelector('.clear-single-div')
 let holding = false;
 let rainbow = false;
+let gridSize;
 
 // update grid size and create div
-const gridInputHandler = (event) => {
-  const gridSize = event.currentTarget.value;
-  adjustableGrid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
-  adjustableGrid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
-  sliderLabel.textContent = `${gridSize}`;
+// needs to be decided function because it's called by 
+// multiple event listeners
+const updateGrid = (size) => {
+  adjustableGrid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  adjustableGrid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+  sliderLabel.textContent = `${size}`;
 
   let totalDiv = "";
-  for (let numDiv = 0; numDiv < gridSize * gridSize; numDiv++) {
+  for (let numDiv = 0; numDiv < size * size; numDiv++) {
     totalDiv += `<div></div>`;
   }
   adjustableGrid.innerHTML = totalDiv;
@@ -49,7 +53,10 @@ const clickAndHoldHandler = () => {
   });
 };
 
-sliderInput.addEventListener("input", gridInputHandler);
+sliderInput.addEventListener("input", (event) => {
+  gridSize = event.currentTarget.value
+  updateGrid(gridSize)
+});
 
 // if the color is not set when the mouse is pressed the code
 // will not work unless the mouse is moving.
@@ -77,3 +84,7 @@ rainbowColor.addEventListener("click", () => {
 colorPickerInput.addEventListener("click", () => {
   rainbow = false;
 });
+
+resetGrid.addEventListener('click', () => {
+  updateGrid(gridSize)
+})
