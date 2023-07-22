@@ -57,14 +57,14 @@ header h1 {
 ::-webkit-color-swatch {
   border: 0;
   border-radius: 50%;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /* needed to the remove the inside border for firefox UNTESTED */
 ::-moz-color-swatch {
   border: 0;
   border-radius: 50%;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .color-picker-label {
@@ -78,12 +78,11 @@ header h1 {
   background-color: #343a40;
   border-radius: 0.3rem;
   border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .config button:hover {
-  background-color: #f6f1f1;
-  color: #343a40;
-  outline: 1px solid #343a40;
+  transform: scale(1.05);
 }
 
 .slider input[type="range"] {
