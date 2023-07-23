@@ -1,7 +1,6 @@
 const sliderInput = document.querySelector("#slider");
 const sliderLabel = document.querySelector(".slider-label");
 const adjustableGrid = document.querySelector(".adjustable-grid");
-const gridChildren = document.querySelectorAll(".adjustable-grid div");
 const colorPickerInput = document.querySelector("#color-picker");
 const rainbowColor = document.querySelector(".rainbow");
 const resetGrid = document.querySelector(".reset-grid");
@@ -40,13 +39,14 @@ const rainbowColorSetter = () => {
 
 // WHAT: apply color on as mouse moves
 // WHY: it's necessary to make sure it works only when the mouse is over the grid
+// and after the initial color set
 const clickAndHoldHandler = () => {
   adjustableGrid.addEventListener("mouseover", (event) => {
     //console.log(event.target);
     const rgbColor = rainbowColorSetter();
     if (event.currentTarget === adjustableGrid) {
       if (clear && holding) {
-        event.target.style = ''
+        event.target.style = "";
       } else if (rainbow && holding) {
         event.target.style.backgroundColor = `${rgbColor}`;
       } else if (holding) {
@@ -56,26 +56,28 @@ const clickAndHoldHandler = () => {
   });
 };
 
-sliderInput.addEventListener("input", (event) => {
-  gridSize = event.currentTarget.value;
-  updateGrid(gridSize);
-});
-
 // WHY: if the color is not set when the mouse is pressed the code
 // will not work unless the mouse is moving.
-adjustableGrid.addEventListener("mousedown", (event) => {
+const setInitialColorHandler = (event) => {
   const rgbColor = rainbowColorSetter();
   holding = true;
-  console.log(event.target);
+  //console.log(event.target);
   if (clear) {
-    event.target.style = ''
+    event.target.style = "";
   } else if (rainbow) {
     event.target.style.backgroundColor = `${rgbColor}`;
   } else {
     event.target.style.backgroundColor = `${colorPickerInput.value}`;
   }
   clickAndHoldHandler();
+};
+
+sliderInput.addEventListener("input", (event) => {
+  gridSize = event.currentTarget.value;
+  updateGrid(gridSize);
 });
+
+adjustableGrid.addEventListener("mousedown", setInitialColorHandler);
 
 document.addEventListener("mouseup", () => {
   holding = false;
@@ -95,6 +97,6 @@ resetGrid.addEventListener("click", () => {
   updateGrid(gridSize);
 });
 
-clearSingleDiv.addEventListener("click", (event) => {
-  clear = true;  
+clearSingleDiv.addEventListener("click", () => {
+  clear = true;
 });
