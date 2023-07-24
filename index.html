@@ -8,9 +8,10 @@
   </head>
   <body>
     <div class="container">
-        <header>
-          <h1>Etch-a-sketch</h1>
-        </header>
+      <header>
+        <h1>Etch-a-sketch</h1>
+      </header>
+      <div class="footer-wrapper">
         <main class="grid-n-config">
           <section>
             <div class="config">
@@ -35,7 +36,16 @@
           </section>
           <section class="adjustable-grid"></section>
         </main>
-      
+        <footer class="footer">
+          <p>
+            Built by <a href="https://github.com/Berto-m/etch-a-sketch">berto-m</a> - <strong>Copyright ©
+            <script>
+              document.write(new Date().getFullYear());
+            </script></strong> - 
+            Inspired by <a href="https://michalosman.github.io/etch-a-sketch/">michalosman</a>
+          </p>
+        </footer>
+      </div>
     </div>
     <script src="/main.js"></script>
   </body>

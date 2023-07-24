@@ -114,3 +114,123 @@ header h1 {
 }
 /* END GRID */
 
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer {
+  text-align: center;
+  padding-block: 1.5rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #00b4d8;
+}
+
+footer a:first-child:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+footer a:last-child:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .grid-n-config {
+    grid-template-columns: 1fr 3fr;
+    place-items: center;
+    gap: 2rem;
+  }
+
+  .adjustable-grid {
+    background-color: white;
+    width: 500px;
+    height: 500px;
+  }
+
+  .config button {
+    padding-inline: 2rem;
+    place-items: center;
+  }
+
+  header h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid-n-config {
+    grid-template-columns: 1.5fr 3fr;
+    gap: 2rem;
+  }
+
+  .grid-n-config section:first-child {
+    display: flex;
+    justify-content: center;
+  }
+
+  .adjustable-grid {
+    width: 500px;
+    height: 500px;
+  }
+
+  .config button {
+    padding-inline: 3rem;
+  }
+
+  header h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-n-config {
+    grid-template-columns: 1.5fr 3fr;
+    gap: 2rem;
+  }
+
+  .grid-n-config section:first-child {
+    display: flex;
+    justify-content: center;
+  }
+
+  .adjustable-grid {
+    width: 400px;
+    height: 400px;
+  }
+
+  .config button {
+    padding-inline: 3rem;
+  }
+
+  header h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .grid-n-config {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .adjustable-grid {
+    width: 280px;
+    height: 280px;
+  }
+
+  .config button {
+    padding-inline: 4rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+}
