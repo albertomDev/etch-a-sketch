@@ -11,7 +11,7 @@ let clear = false;
 let gridSize;
 
 // WHAT: update grid size and create div
-// WHY: needs to be decided function because it's called by
+// WHY: needs to be a dedicated function because it's called by
 // multiple event listeners
 const updateGrid = (size) => {
   adjustableGrid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -33,7 +33,7 @@ const rainbowColorSetter = () => {
     let randomColor = Math.floor(Math.random() * 256);
     rgbColors[i] = randomColor;
   }
-  rgbColorsJoined = `rgb(${rgbColors.join(", ")})`;
+  const rgbColorsJoined = `rgb(${rgbColors.join(", ")})`;
   return rgbColorsJoined;
 };
 
@@ -55,7 +55,7 @@ const lowerBrightness = (color) => {
   return darkerColor;
 };
 
-// WHAT: apply color on as mouse moves
+// WHAT: applies colors as the moves through the grid
 // WHY: it's necessary to make sure it works only when the mouse is over the grid
 // and after the initial color set
 const mouseOverHandler = (event) => {
@@ -73,8 +73,7 @@ const mouseOverHandler = (event) => {
   }
 };
 
-// WHY: if the color is not set when the mouse is pressed the code
-// will not work unless the mouse is moving.
+// WHY: if the color is not set when the mouse is pressed the code will not run
 const setInitialColorHandler = (event) => {
   holding = true;
   //console.log(event.target);
@@ -99,7 +98,7 @@ adjustableGrid.addEventListener("mouseover", mouseOverHandler);
 
 adjustableGrid.addEventListener("mousedown", setInitialColorHandler);
 
-document.addEventListener("mouseup", (event) => {
+document.addEventListener("mouseup", () => {
   holding = false;
 });
 
