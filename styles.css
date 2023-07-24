@@ -7,16 +7,15 @@
 
 body {
   background-color: #f6f1f1;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .container {
   max-width: 960px;
   padding-inline: 20px;
   margin-inline: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* START HEADER */
@@ -119,13 +118,11 @@ header h1 {
 }
 /* END GRID */
 
-.footer-wrapper {
-  
-}
-
 footer {
+  width: 100%;
   text-align: center;
-  padding-block: 1.5rem;
+  margin-top: auto;
+  padding-block: 2rem;
 }
 
 footer a {
