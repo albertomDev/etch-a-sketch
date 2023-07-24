@@ -8,38 +8,34 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1>Etch-a-sketch</h1>
-      </header>
-      <main class="grid-n-config">
-        <section>
-          <div class="config">
-            <div class="color-picker">
-              <input
-                class=""
-                type="color"
-                id="color-picker"
-                name="favcolor"
-                value="#00b4d8"
-              />
-              <p class="color-picker-label">Color Picker</p>
+        <header>
+          <h1>Etch-a-sketch</h1>
+        </header>
+        <main class="grid-n-config">
+          <section>
+            <div class="config">
+              <div class="color-picker">
+                <input
+                  class=""
+                  type="color"
+                  id="color-picker"
+                  name="favcolor"
+                  value="#00b4d8"
+                />
+                <p class="color-picker-label">Color Picker</p>
+              </div>
+              <button class="clear-single-div">Clear</button>
+              <button class="reset-grid">Reset</button>
+              <button class="rainbow">Rainbow</button>
+              <div class="slider">
+                <input type="range" min="1" max="100" value="16" id="slider" />
+                <p class="slider-label" id="slider-value">16</p>
+              </div>
             </div>
-            <button class="clear-single-div">Clear</button>
-            <button class="reset-grid">Reset</button>
-            <button class="rainbow">Rainbow</button>
-            <div class="slider">
-              <input type="range" min="1" max="100" value="2" id="slider" />
-              <p class="slider-label" id="slider-value">2</p>
-            </div>
-          </div>
-        </section>
-        <section class="adjustable-grid">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </section>
-      </main>
+          </section>
+          <section class="adjustable-grid"></section>
+        </main>
+      
     </div>
     <script src="/main.js"></script>
   </body>

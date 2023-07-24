@@ -37,39 +37,57 @@ const rainbowColorSetter = () => {
   return rgbColorsJoined;
 };
 
+const lowerBrightness = (color) => {
+  // Parse the RGB color string and extract the individual components
+  const match = color.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+
+  // Extract the RGB components from the match result
+  const [, red, green, blue] = match.map(Number);
+
+  // Calculate the new RGB components with 10% reduced brightness
+  const newRed = Math.max(0, red - Math.round(red * 0.1));
+  const newGreen = Math.max(0, green - Math.round(green * 0.1));
+  const newBlue = Math.max(0, blue - Math.round(blue * 0.1));
+
+  // Format the new RGB values into a string
+  const darkerColor = `rgb(${newRed}, ${newGreen}, ${newBlue})`;
+
+  return darkerColor;
+};
+
 // WHAT: apply color on as mouse moves
 // WHY: it's necessary to make sure it works only when the mouse is over the grid
 // and after the initial color set
-const clickAndHoldHandler = () => {
-  adjustableGrid.addEventListener("mouseover", (event) => {
-    //console.log(event.target);
-    const rgbColor = rainbowColorSetter();
-    if (event.currentTarget === adjustableGrid) {
-      if (clear && holding) {
-        event.target.style = "";
-      } else if (rainbow && holding) {
-        event.target.style.backgroundColor = `${rgbColor}`;
-      } else if (holding) {
-        event.target.style.backgroundColor = `${colorPickerInput.value}`;
-      }
+const mouseOverHandler = (event) => {
+  if (holding) {
+    if (clear) {
+      event.target.style = "";
+    } else if (event.target.style.backgroundColor) {
+      const changedColor = lowerBrightness(event.target.style.backgroundColor);
+      event.target.style.backgroundColor = `${changedColor}`;
+    } else if (rainbow) {
+      event.target.style.backgroundColor = `${rainbowColorSetter()}`;
+    } else {
+      event.target.style.backgroundColor = `${colorPickerInput.value}`;
     }
-  });
+  }
 };
 
 // WHY: if the color is not set when the mouse is pressed the code
 // will not work unless the mouse is moving.
 const setInitialColorHandler = (event) => {
-  const rgbColor = rainbowColorSetter();
   holding = true;
   //console.log(event.target);
   if (clear) {
     event.target.style = "";
+  } else if (event.target.style.backgroundColor) {
+    const changedColor = lowerBrightness(event.target.style.backgroundColor);
+    event.target.style.backgroundColor = `${changedColor}`;
   } else if (rainbow) {
-    event.target.style.backgroundColor = `${rgbColor}`;
+    event.target.style.backgroundColor = `${rainbowColorSetter()}`;
   } else {
     event.target.style.backgroundColor = `${colorPickerInput.value}`;
   }
-  clickAndHoldHandler();
 };
 
 sliderInput.addEventListener("input", (event) => {
@@ -77,9 +95,11 @@ sliderInput.addEventListener("input", (event) => {
   updateGrid(gridSize);
 });
 
+adjustableGrid.addEventListener("mouseover", mouseOverHandler);
+
 adjustableGrid.addEventListener("mousedown", setInitialColorHandler);
 
-document.addEventListener("mouseup", () => {
+document.addEventListener("mouseup", (event) => {
   holding = false;
 });
 
@@ -100,3 +120,8 @@ resetGrid.addEventListener("click", () => {
 clearSingleDiv.addEventListener("click", () => {
   clear = true;
 });
+
+window.onload = () => {
+  gridSize = 16;
+  updateGrid(gridSize);
+};
