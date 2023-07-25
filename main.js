@@ -92,6 +92,7 @@ const setInitialColorHandler = (event) => {
 sliderInput.addEventListener("input", (event) => {
   gridSize = event.currentTarget.value;
   updateGrid(gridSize);
+  clear = false
 });
 
 adjustableGrid.addEventListener("mouseover", mouseOverHandler);
