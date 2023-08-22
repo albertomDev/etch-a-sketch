@@ -1,6 +1,6 @@
 # etch-a-sketch
 
-**Live demo:** https://berto-m.github.io/etch-a-sketch/
+**Live demo:** https://albertomdev.github.io/etch-a-sketch/
 
 This project is part of The Odin Project curriculum.
 
@@ -8,7 +8,8 @@ I am not a UI designer, so I like to take inspiration from other creators. Cloni
 
 - https://michalosman.github.io/etch-a-sketch/
 
-## Features 
+## Features
+
 - **Color picker:** html styled color picker.
 - **Random Color Mode:** it randomizes the square’s RGB value entirely.
 - **Darkening effect:** if a square already has a color, it darkens the color by 10% when it's hovered or clicked
@@ -17,8 +18,10 @@ I am not a UI designer, so I like to take inspiration from other creators. Cloni
 - **Grid Size Adjustment:** uses a slider to adjust the grid size from 1 to 100
 
 ## Feedback
+
 Feedback to improve or expand the Etch-A-Sketch application are welcome
 
 ## Credit
-- Built by @Berto-m
+
+- Built by @albertomDev
 - Inspired by @michalosman
